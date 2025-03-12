@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Image } from "@radix-ui/react-avatar";
 import Link from "next/link";
 import React from "react";
 
@@ -71,7 +71,7 @@ function createHeading(level: number) {
           className: "anchor",
         }),
       ],
-      children,
+      children
     );
   };
   Heading.displayName = `Heading${level}`;
