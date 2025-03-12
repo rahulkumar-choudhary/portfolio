@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Gaming console inspired colors */
+    --primary: 267 100% 60%;  /* Neon Purple */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 180 100% 50%;  /* Cyan */
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 330 100% 50%;  /* Neon Pink */
+    --accent-foreground: 0 0% 98%;
+    
+    --muted: 240 5% 64.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --ring: 267 100% 60%;
+    
+    --radius: 0.75rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins);
+    letter-spacing: -0.02em;
+  }
+
+  body {
+    font-family: var(--font-manrope);
+  }
+
+  code, pre {
+    font-family: var(--font-manrope);
+  }
+}
+
+@layer components {
+  /* Gaming console animations */
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 0 0 10px var(--primary),
+                   0 0 20px var(--primary),
+                   0 0 30px var(--primary);
+    }
+    50% {
+      text-shadow: 0 0 20px var(--secondary),
+                   0 0 30px var(--secondary),
+                   0 0 40px var(--secondary);
+    }
+  }
+
+  @keyframes pixel-shift {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(1px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: translateX(-1px);
+    }
+  }
+
+  /* Gaming console effects */
+  .retro-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .retro-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 0.5%,
+      transparent 1%
+    );
+    animation: scanline 10s linear infinite;
+    pointer-events: none;
+  }
+
+  .retro-text {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .pixel-shift {
+    animation: pixel-shift 0.2s steps(2) infinite;
+  }
+
+  /* Gaming console UI elements */
+  .console-button {
+    background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)));
+    border: 2px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .console-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px hsl(var(--primary)),
+                0 0 30px hsl(var(--secondary));
+  }
+
+  .console-button:active {
+    transform: translateY(1px);
+  }
+
+  .console-card {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card)) 0%,
+      hsl(var(--background)) 100%
+    );
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1rem;
+    position: relative;
+  }
+
+  .console-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+} 

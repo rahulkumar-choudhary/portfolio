@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    /* Gaming console inspired colors */
+    --primary: 267 100% 60%;  /* Neon Purple */
+    --primary-foreground: 0 0% 98%;
+    
+    --secondary: 180 100% 50%;  /* Cyan */
+    --secondary-foreground: 0 0% 98%;
+    
+    --accent: 330 100% 50%;  /* Neon Pink */
+    --accent-foreground: 0 0% 98%;
+    
+    --muted: 240 5% 64.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --ring: 267 100% 60%;
+    
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Style all links */
+  a {
+    @apply text-yellow-400 hover:text-yellow-300 transition-colors duration-200;
+  }
+
+  /* Style links in dark mode */
+  .dark a {
+    @apply text-yellow-400 hover:text-yellow-300;
+  }
+
+  /* Style links in light mode */
+  .light a {
+    @apply text-yellow-600 hover:text-yellow-500;
+  }
+}
+
+/* Custom scrollbar for gaming theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* Selection color */
+::selection {
+  @apply bg-primary/20 text-primary;
+}
+
+/* Focus styles */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection on buttons */
+button {
+  @apply select-none;
+} 
